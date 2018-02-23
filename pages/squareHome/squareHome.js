@@ -151,6 +151,12 @@ Page({
       title: '加载中•••',
       mask: true
     })
+    app.userInfoReadyCallback = res => {
+      this.setData({
+        userInfo: res.userInfo,
+        token: tok
+      })
+    }
     this.loop();
   },
   loop: function () {

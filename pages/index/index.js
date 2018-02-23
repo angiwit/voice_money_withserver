@@ -763,9 +763,10 @@ Page({
   },
   //获取登录信息
   onShow: function () {
+    console.log("进入到onShow方法")
     wx.showLoading({
       title: '加载中•••',
-      mask: true
+      mask: false
     }),
     app.userInfoReadyCallback = res => {
       console.log("进入回调方法，将用户信息放入data中")
