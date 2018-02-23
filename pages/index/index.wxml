@@ -7,7 +7,7 @@
     <view class='mode {{mode == 1 ? "on":""}}' data-current="1" bindtap="swichNav">祝福红包</view> 
     <view class='mode {{mode == 2 ? "on":""}}' data-current="2" bindtap="swichNav">问答红包</view>  
   </view>
-  <view class='warning'><image src="/images/warning.png"></image>平台严打黄赌毒、恐怖暴力内容，一经发现永久查封</view>
+  <!-- <view class='warning'><image src="/images/warning.png"></image>平台严打黄赌毒、恐怖暴力内容，一经发现永久查封</view> -->
   <swiper class='swiper{{mode}}' current="{{mode}}" duration="{{duration}}" bindchange="bindchange">
     <swiper-item>
       <view class='clear-top'></view>

@@ -24,7 +24,7 @@
       },
       {
         "pagePath": "pages/squareHome/squareHome",
-        "text": "广场",
+        "text": "挑战广场",
         "iconPath": "images/square.png",
         "selectedIconPath": "images/square-on.png"
       },
@@ -39,7 +39,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#de4c56",
-    "navigationBarTitleText": "语音口令",
+    "navigationBarTitleText": "趣微红包",
     "navigationBarTextStyle":"white"
   }
 

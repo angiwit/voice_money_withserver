@@ -281,7 +281,7 @@ Page({
     if (mode == 0) {
       datas.quest = valkl;
       //口令提交信息
-      var postUrl = app.setConfig.url;
+      var postUrl = app.setConfig.url + '/index.php/Api/Enve/saveEnve';
       app.postLogin(postUrl, datas, that.saveEnve);
     } else if (mode == 1) {
       var audio = this.data.audio;
@@ -649,7 +649,7 @@ Page({
   //拨打电话
   tel: function () {
     wx.makePhoneCall({
-      phoneNumber: '020-22096568'
+      phoneNumber: '18061651013'
     })
   },
 
@@ -773,10 +773,8 @@ Page({
         userInfo: app.globalData.userInfo = res.userInfo,
         hasUserInfo: true
       })
-    },
-    
-      //this.loop();
-    
+      } 
+    this.loop();
   },
 
   

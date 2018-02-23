@@ -1,7 +1,7 @@
 //app.js
 var loginInfo={};
 App({
-  setConfig: { url: 'https://www.jiaoruogu.club/' },
+  setConfig: { url: 'https://www.ipetsfamily.com/' },
   onLaunch: function () {
     this.userLogin();
   },
@@ -51,38 +51,37 @@ App({
                   }
                 })
               }else{
-                // wx.authorize({
-                //   scope: 'scope.userInfo',
-                //   success: res => {
-                //     console.log("开始用户授权操作")
-                //     //用户已经同意小程序授权
-                    
-                //   }
-                // })
-                console.log("进入else逻辑")
-                wx.getUserInfo({
+                wx.authorize({
+                  scope: 'scope.userInfo',
                   success: res => {
-                    // 可以将 res 发送给后台解码出 unionId
-                    console.log("获取到用户信息")
-                    var infoUser = '';
-                    that.globalData.userInfo = infoUser = res.userInfo;
-                    // 所以此处加入 callback 以防止这种情况
-                    if (that.userInfoReadyCallback) {
-                      that.userInfoReadyCallback(res)
-                    }
-                    //用户信息入库
-                    var url = that.setConfig.url + '/index.php/User/login/dologin';
-                    var data = {
-                      user_name: infoUser.nickName,
-                      nick_name: infoUser.nickName,
-                      head_img: infoUser.avatarUrl,
-                      sex: infoUser.gender,
-                      coutry: infoUser.country,
-                      city: infoUser.city,
-                      province: infoUser.province,
-                      code: codes,
-                    }
-                    that.postLogin(url, data);
+                    console.log("开始用户授权操作")
+                    //用户已经同意小程序授权
+                    console.log("进入else逻辑")
+                    wx.getUserInfo({
+                      success: res => {
+                        // 可以将 res 发送给后台解码出 unionId
+                        console.log("获取到用户信息")
+                        var infoUser = '';
+                        that.globalData.userInfo = infoUser = res.userInfo;
+                        // 所以此处加入 callback 以防止这种情况
+                        if (that.userInfoReadyCallback) {
+                          that.userInfoReadyCallback(res)
+                        }
+                        //用户信息入库
+                        var url = that.setConfig.url + '/index.php/User/login/dologin';
+                        var data = {
+                          user_name: infoUser.nickName,
+                          nick_name: infoUser.nickName,
+                          head_img: infoUser.avatarUrl,
+                          sex: infoUser.gender,
+                          coutry: infoUser.country,
+                          city: infoUser.city,
+                          province: infoUser.province,
+                          code: codes,
+                        }
+                        that.postLogin(url, data);
+                      }
+                    })
                   }
                 })
               }
@@ -98,6 +97,7 @@ App({
   //提交
   postLogin: function (url,data,callback=function(){}){
     var that = this;
+    console.log("请求接口：", url)
     //发起网络请求
     wx.request({
       url: url,
@@ -107,7 +107,7 @@ App({
       success:function(res){
         if(res.data.code!=20000){
           wx.showToast({
-            title: res.data.msg,
+            title: res.data.msg || res.data,
             icon: 'loading',
             mask: true,
             duration: 1500
@@ -116,7 +116,7 @@ App({
           return false;
         }
         if (res.data.token){that.globalData.token = res.data.token;}
-        //console.log(that.globalData)
+        console.log(that.globalData)
         callback(res);
       }
     })

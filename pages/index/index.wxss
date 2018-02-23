@@ -306,7 +306,7 @@ background: url("http://xcx.gzzh.co/hb-bnm/mide-record.gif") no-repeat center 0/
 }
 .clear-top{
   width: 100%;
-  height: 88rpx;
+  height: 180rpx;
 }
 .clear{
   width: 100%;
