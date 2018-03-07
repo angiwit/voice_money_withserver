@@ -711,8 +711,8 @@ Page({
               title: '支付成功',
               icon: 'success',
               duration: 1000
-            })
-            var postUrlTZ = app.setConfig.url + '/index.php?g=Api&m=Enve&a=sendCreateEnveNotify',
+            })  
+            var postUrlTZ = app.setConfig.url + '/index.php?g=Api&m=Enve&a=sendCreateEnveNotify', //向用户发送模板消息
               postDataTZ = {
                 token: app.globalData.token,
                 prepay_id: payInfo.prepay_id,

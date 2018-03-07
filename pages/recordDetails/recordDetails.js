@@ -47,7 +47,7 @@ Page({
     adimgstate: false,    // 是否上传图片
     videostate: false,    // 是否上传视频
     adv_text:'',    // 广告语
-    playID:-1,        // 语音播放器控制id
+    playID:-1,        // 语音播放器控制id，目前看下来没有什么用
     state: true,         // 领取按钮控制  true为可领取
     receiveState: false,     // 领取状态  true为已领取
     mide: false,          // 录音话筒控制 true为显示
@@ -285,7 +285,7 @@ Page({
         playID: -1
       })
     }else{
-      
+      //需要用户听的语音有两种：祝福红包和语音猜红包，当这个是祝福红包的时候，在录音播放结束的时间后，自动loading一个“领取中”
       var url = i >= 99999 ? app.setConfig.url + that.data.voice_url : app.setConfig.url + '/' + that.data.ls[i].src;
       var millisecond = i >= 99999 ? that.data.voice_dura :  that.data.ls[i].millisecond;  
       //下载并播放语音
@@ -365,7 +365,7 @@ Page({
       url: '../report/report'
     })
   },
-  // 转发
+  // 转发 微信自有
   onShareAppMessage: function (res) {
     var id = this.data.pid,
         text = this.data.relay[this.data.mode],
@@ -408,7 +408,7 @@ Page({
       title: '加载中•••',
       mask: true
     })
-    var scene = decodeURIComponent(options.scene);
+    var scene = decodeURIComponent(options.scene); //这里应该是从index页面跳转过来的
     if(scene > 0){
       var pid = scene;
     }else{

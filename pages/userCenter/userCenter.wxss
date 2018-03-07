@@ -1,5 +1,4 @@
 /* pages/userCenter/userCenter.wxss */
-
 .userinfo-bg{
   padding: 40rpx 30rpx;
   background: #fff;

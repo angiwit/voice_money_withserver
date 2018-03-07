@@ -159,9 +159,9 @@
     </view>
     <view class='suggest'>*视频和图片同时上传时显示图片为封面</view>
   </view>
-  <view class='adv'>
+  <!-- <view class='adv'>
     <image src='{{imgsTP[mode].slide_pic}}'></image>
     <text>广告</text>
-  </view>
+  </view> -->
 </view>
 </block>

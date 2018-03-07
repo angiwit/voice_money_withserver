@@ -1,5 +1,5 @@
 <!--pages/userCenter/userCenter.wxml-->
-<view class='userinfo-bg'>
+<view class='userinfo-bg'>  
   <view class='userinfo-l'>
     <button class='sqbtn' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 加载中••• </button>
     <block wx:else>
@@ -68,8 +68,7 @@
   </view>
   <button class='btn-kf' open-type="contact"></button> 
 </view>
-
-<view class='adv'>
+<!-- <view class='adv'>
   <image src='{{advpt.slide_pic}}'></image>
   <text>广告</text>
-</view>
+</view> -->
